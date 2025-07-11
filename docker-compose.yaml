@@ -1,23 +1,4 @@
 services:
-  api:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - 8080:8080
-    environment:
-      - PORT=8080
-      - DB_SCHEMA=public
-      - DB_URL=postgres://user:pass@db:5432/drunk_dwarves?sslmode=disable
-      - GOOSE_DRIVER=postgres
-      - GOOSE_DBSTRING=postgres://user:pass@db:5432/drunk_dwarves?sslmode=disable
-      - GOOSE_MIGRATION_DIR=internal/config/db/migrations
-      - API_PATH=./cmd/api/main.go
-    depends_on:
-      - db
-    networks:
-      - net
-
   db:
     image: postgres:17.5-alpine3.22
     ports:
@@ -28,8 +9,3 @@ services:
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=pass
       - POSTGRES_DB=drunk_dwarves
-    networks:
-      - net
-
-networks:
-  net:
