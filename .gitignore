@@ -1,0 +1,9 @@
+# Envirinment
+.env*
+
+# Generated
+.gen
+.bin
+/docs
+gen-docs.exe
+gen-jet.exe
