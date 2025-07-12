@@ -5,5 +5,5 @@
 .gen
 .bin
 /docs
-gen-docs
-db-prep
+/prep-docs
+/prep-db

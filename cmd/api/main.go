@@ -21,7 +21,7 @@ import (
 // @description API written in Go for Drunk Dwarves Website
 // @host localhost:8080
 // @schemes http
-// @BasePath /
+// @BasePath /api
 func main() {
 	godotenv.Load(".env")
 

@@ -3,7 +3,7 @@ package validation
 import (
 	"net/http"
 
-	"github.com/Lesnoi-Dmytro/drank-dwarves-api/pkg/response"
+	"github.com/Lesnoi-Dmytro/drank-dwarves-api/pkg/res"
 	"github.com/go-playground/validator/v10"
 )
 
@@ -13,7 +13,6 @@ func ValidateStruct[T interface{}](w http.ResponseWriter, data T) {
 	err := validate.Struct(data)
 
 	if err != nil {
-		errors := err.(validator.ValidationErrors)
-		response.RespondWithError(w, 400, errors.Error())
+		res.ValidationError(w, err)
 	}
 }

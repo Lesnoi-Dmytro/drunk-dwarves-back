@@ -3,6 +3,7 @@ package router
 import (
 	"net/http"
 
+	"github.com/Lesnoi-Dmytro/drank-dwarves-api/internal/core/health"
 	"github.com/go-chi/chi"
 	"github.com/go-chi/cors"
 	httpSwagger "github.com/swaggo/http-swagger"
@@ -21,6 +22,7 @@ func Create() *chi.Mux {
 	}))
 
 	router.Route("/api", func(r chi.Router) {
+		r.Mount("/health", health.Router())
 		r.Get("/swagger", func(w http.ResponseWriter, r *http.Request) {
 			http.Redirect(w, r, "/api/swagger/index.html", http.StatusMovedPermanently)
 		})

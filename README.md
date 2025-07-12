@@ -69,7 +69,7 @@ To access database [`jet`](https://github.com/go-jet/jet) is used in this projec
 ```go install github.com/go-jet/jet/v2/cmd/jet@latest```
 
 To generate all required for correct jet work files first compile the `db-prep.exe`(for Windows) script using:  
-```go build -o db-prep ./cmd/gen/db-prep/main.go```
+```go build -o prep-db ./cmd/prep/db/main.go```
 
 By executing this script, required jet files will be generated
 
@@ -79,7 +79,7 @@ To create the documentation run you need to install [`swag`](https://github.com/
 ```go install github.com/swaggo/swag/cmd/swag@latest```  
 
 To generate the documentation from code comments first compile the `gen-docs.exe`(for Windows) script using:  
-```go build -o gen-docs ./cmd/gen/docs/main.go```
+```go build -o prep-docs ./cmd/prep/docs/main.go```
 
 By executing this script, api documentation will be generated. To access the documentation visit `/api/swagger`. For local development use:
 ```http://localhost:8080/api/swagger```
