@@ -41,7 +41,15 @@ API_PATH=./cmd/api/main.go
 
 ## Commands
 
-### Generating Endpoints Group
+### Generating Feature Group
+
+To generate a migration you need to have [`goimports`](https://pkg.go.dev/golang.org/x/tools/cmd/goimports). To install goose run:  
+```go install golang.org/x/tools/cmd/goimports@latest```
+
+To generate a feature required for correct jet work files first compile the `gen-feat` script using:  
+```go build -o gen-feat ./cmd/gen/feat/main.go```
+
+By executing this script, required feature directory and `dto`, `handlers`, `services` and `router` files will be generated. Generated feature will automatically be added to the general router
 
 ### Migrations
 
@@ -68,7 +76,7 @@ To check the migration status run:
 To access database [`jet`](https://github.com/go-jet/jet) is used in this project. To install jet run:  
 ```go install github.com/go-jet/jet/v2/cmd/jet@latest```
 
-To generate all required for correct jet work files first compile the `db-prep.exe`(for Windows) script using:  
+To generate all required for correct jet work files first compile the `prep-db` script using:  
 ```go build -o prep-db ./cmd/prep/db/main.go```
 
 By executing this script, required jet files will be generated
@@ -78,7 +86,7 @@ By executing this script, required jet files will be generated
 To create the documentation run you need to install [`swag`](https://github.com/swaggo/swag). To install swag run:  
 ```go install github.com/swaggo/swag/cmd/swag@latest```  
 
-To generate the documentation from code comments first compile the `gen-docs.exe`(for Windows) script using:  
+To generate the documentation from code comments first compile the `prep-docs` script using:  
 ```go build -o prep-docs ./cmd/prep/docs/main.go```
 
 By executing this script, api documentation will be generated. To access the documentation visit `/api/swagger`. For local development use:

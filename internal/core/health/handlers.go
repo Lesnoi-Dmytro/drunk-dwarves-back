@@ -8,7 +8,7 @@ import (
 
 // GetHealth godoc
 // @Summary      Health check
-// @Description  Returns a 200 OK if the service is healthy
+// @Description  Returns a server health state
 // @Tags         Health
 // @Produce      application/json
 // @Success      200 {object} ServerHealth

@@ -1,7 +1,9 @@
 package api
 
-import "database/sql"
+import (
+	"github.com/Lesnoi-Dmytro/drank-dwarves-api/internal/config/db"
+)
 
-type Context struct {
-	DB *sql.DB
+func Config() {
+	db.ConnectDB()
 }

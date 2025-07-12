@@ -30,21 +30,21 @@ func main() {
 		log.Fatal("No Port defined in environment")
 	}
 
+	log.Println("Starting server...")
+
+	api.Config()
+
 	srv := &http.Server{
 		Handler: router.Create(),
 		Addr:    ":" + portString,
 	}
 
-	apiCfg := api.Context{
-		DB: db.ConnectDB(),
-	}
-
 	user := model.Users{}
 	query := jet.SELECT(table.Users.Email).
 		FROM(table.Users.Table)
-	err := query.Query(apiCfg.DB, &user)
+	err := query.Query(db.DB, &user)
 	if err != nil {
-		// log.Fatal("Error retrieving user:", err)
+		log.Println("Error retrieving user:", err)
 	} else {
 		log.Printf("%+v\n", user)
 	}
